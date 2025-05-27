@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import RecommandationCard from "./RecommandationCard";
 import { BookProps } from "@/app/data/typeDatas";
 import clsx from "clsx";
@@ -7,10 +7,7 @@ import { Playfair } from "next/font/google";
 const playFair = Playfair({
   subsets: ["latin"],
 });
-interface LogoType {
-  size: "sm" | "lg";
-  children?: React.ReactNode;
-}
+
 
 export default function Recommandation() {
   const recommandations: BookProps[] = [

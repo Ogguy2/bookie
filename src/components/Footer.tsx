@@ -1,6 +1,5 @@
 import React from "react";
 import Icon from "./Icon";
-import { BiSearch } from "react-icons/bi";
 import Logo from "./Logo";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";

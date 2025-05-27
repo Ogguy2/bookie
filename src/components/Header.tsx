@@ -70,7 +70,7 @@ export default function Header() {
     },
   ];
   return (
-    <div className=" ">
+    <div className="shadow-xs">
       <div className="w-full flex py-3 max-w-[1500px] mx-auto  shadow justify-between items-center">
         {/* LOGO */}
         <div className="">

@@ -26,7 +26,7 @@ const ImageCard = ({ className, size = "sm", image }: ImageCardProps) => {
 
   const sizeStyle = {
     sm: "w-full h-[300px]",
-    md: "w-full ",
+    md: "w-full h-[350px]",
     lg: "w-full h-[400px]",
   };
   // const loaderFunction = () => {
