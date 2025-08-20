@@ -10,6 +10,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import ImageCard from "./ImageCard";
 
 const playFair = Playfair({
   subsets: ["latin"],
@@ -75,28 +76,40 @@ export default function SwCarousel() {
       }}
       modules={[Autoplay, Pagination]}
       pagination={pagination}
-      loop={true}>
+      loop={true}
+    >
       {carouselItems.map((item, number) => (
         <SwiperSlide key={number} delay={1000}>
           <div className="px-3 my-10">
-            <div className={clsx("bg-white px-6 py-8 h-[200px] lg:h-[350px] flex", item.horizontal ? "flex-col  gap-6" : " flex-row-reverse gap-12 ")}>
-              {/* <div className={clsx("bg-[url(https://picsum.photos/500/200)]", "bg-cover bg-center ", item.horizontal ? "flex-1" : "flex-1")}></div> */}
-              <div className={clsx("relative w-full h-full", item.horizontal ? "flex-1" : "flex-1")}>
-                <Image
-                  loading="lazy"
-                  alt="ddd"
-                  style={{objectFit : "cover"}}
-                  fill={true}
-                  src={item.image}
-                />
-              </div>
-              <div className={clsx("", item.horizontal ? "text-center" : "flex items-center flex-1")}>
+            <div
+              className={clsx(
+                "bg-white px-6 py-8 h-[200px] lg:h-[350px] flex",
+                item.horizontal
+                  ? "flex-col  gap-6"
+                  : " flex-row-reverse gap-12 "
+              )}
+            >
+              <ImageCard
+                size="auto"
+                image={item.image}
+                className={clsx(item.horizontal ? "flex-1" : "flex-1")}
+              />
+              <div
+                className={clsx(
+                  "",
+                  item.horizontal ? "text-center" : "flex items-center flex-1"
+                )}
+              >
                 <div className={item.horizontal ? "" : "space-y-5"}>
-                  <div className={clsx(playFair.className, "text-3xl")}>{item.title}</div>
+                  <div className={clsx(playFair.className, "text-3xl")}>
+                    {item.title}
+                  </div>
                   <div className="text-gray-500 text-sm">{item.subTitle}</div>
                   {!item.horizontal && (
                     <div className="my-3">
-                      <span className=" px-4 py-3 font-semibold  text-primary border bborder-primary">Lear more</span>
+                      <span className=" px-4 py-3 font-semibold  text-primary border bborder-primary">
+                        Learn more
+                      </span>
                     </div>
                   )}
                 </div>

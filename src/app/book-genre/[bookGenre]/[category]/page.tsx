@@ -5,6 +5,7 @@ import BreadCrumb from "@/components/BreadCrumb";
 import Icon from "@/components/Icon";
 import ImageCard from "@/components/ImageCard";
 import DefaultPageLayout from "@/components/layout/DefaultPageLayout";
+import { Select } from "radix-ui";
 import clsx from "clsx";
 import { usePathname, useParams } from "next/navigation";
 import React from "react";
@@ -18,7 +19,7 @@ import Link from "next/link";
 import BookCard from "@/components/bookCard/BookCard";
 
 const Page = () => {
-  const { bookGenre } = useParams();
+  const { bookGenre, category } = useParams();
 
   const subGenre = [
     {
@@ -109,14 +110,21 @@ const Page = () => {
       <div className="border-b border-[#d5d5d5]">
         <div className="max-w-[1500px]  py-6 space-y-6 mx-auto">
           <BreadCrumb data={usePathname()} />
-          <div className="text-4xl font-bold font-playfair">{bookGenre}</div>
+          <div className="text-4xl font-bold font-playfair">
+            {bookGenre} / {decodeURIComponent(category)}
+          </div>
           <div className="flex space-x-3">
             {subGenre.map((item, index) => {
               return (
                 <Link
                   href={"/book-genre/" + bookGenre + "/" + item.title}
                   key={index}
-                  className="rounded-3xl border px-5 py-2  text-[#807f7a] border-[#807f7a] "
+                  className={clsx(
+                    decodeURIComponent(category) == item.title
+                      ? "text-primary border-primary"
+                      : "text-[#807f7a] border-[#807f7a]",
+                    "rounded-3xl border px-5 py-2"
+                  )}
                 >
                   {item.title}
                 </Link>
@@ -189,7 +197,7 @@ const Page = () => {
                 </div>
               </div>
             </div>
-            {/* Book list  */}
+            {/* Book group liste */}
             <div className={"grid grid-cols-4 gap-x-10 gap-y-20 "}>
               {selfDevelopment.data.map((item, index) => {
                 return <BookCard key={index} data={item} />;

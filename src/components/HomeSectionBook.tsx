@@ -11,12 +11,12 @@ interface SectionProps {
   children?: React.ReactNode;
 }
 
-const HomeSectionBook = ({ title, data, children, link, horizontal = true }: SectionProps) => {
+const HomeSectionBook = ({ title, data, children, link }: SectionProps) => {
   return (
     <div className="px-10 w   space-y-6">
       <div className="flex w-full items-center  justify-between">
-        <div className="text-3xl font-semibold">{title}</div>
-        <div className="text-sm font-light">
+        <div className="text-3xl font-semibold font-playfair">{title}</div>
+        <div className="text-sm hover:underline font-light">
           <Link href={link}>View more</Link>
         </div>
       </div>
@@ -30,7 +30,8 @@ const HomeSectionBook = ({ title, data, children, link, horizontal = true }: Sec
                   item.new || item.reduction > 0 ? "visible" : "invisible",
                   item.new ? "bg-[#015738]" : "bg-[#ce1235]",
                   "absolute top-3 z-20 right-3 px-4 py-1  text-white"
-                )}>
+                )}
+              >
                 {item.new ? "New" : "-" + item.reduction + "%"}
               </div>
 

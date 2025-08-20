@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { Playfair } from "next/font/google";
+import Link from "next/link";
 
 const playFair = Playfair({
   subsets : ["latin"]
@@ -16,8 +17,10 @@ export default function Logo({ size }: LogoType) {
     lg: "text-8xl",
   };
   return (
-    <div className={clsx(playFair.className)}>
+    <>
+    <Link href={"/"} className={clsx(playFair.className)}>
       <span className={sizeLogoClass[size]}>Bookie</span>
-    </div>
+    </Link>
+    </>
   );
 }

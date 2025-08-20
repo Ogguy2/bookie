@@ -83,11 +83,11 @@ export default function Header() {
               <input className="border-0 w-full focus:ring-0  bg-[#ebebe5]" type="text" name="" id="" />
             </div>
             <div className="h-full">
-              <button className="bg-primary h-full w-[40px] flex items-center justify-around">
+              <Link href={"/search?q=eopifjeoifjo"}  className="bg-primary h-full w-[40px] flex items-center justify-around">
                 <Icon size="sm">
                   <BiSearch className="text-white" />
                 </Icon>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

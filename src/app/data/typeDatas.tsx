@@ -7,6 +7,7 @@ export interface BookProps {
   price: string;
   new: boolean;
   reduction: number;
+  resume? : string;
 }
 
 export const BookNull: BookProps = {

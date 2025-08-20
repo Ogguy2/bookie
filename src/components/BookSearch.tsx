@@ -2,7 +2,7 @@ import { Collapsible } from "radix-ui";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Icon from "./Icon";
-const BookSearch = ({ searhParams, title }) => {
+const BookSearchFilter = ({ searhParams, title }) => {
   const [open, setOpen] = useState(true);
   return (
     <div className=" py-3 pr-3 ">
@@ -40,4 +40,4 @@ const BookSearch = ({ searhParams, title }) => {
   );
 };
 
-export default BookSearch;
+export default BookSearchFilter;

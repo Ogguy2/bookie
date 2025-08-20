@@ -97,7 +97,7 @@ export default function SimpleSlider() {
                 <div className="text-gray-500 text-sm">{item.subTitle}</div>
                 {!item.horizontal && (
                   <div className="my-3">
-                    <span className=" px-4 py-3 font-semibold  text-primary border bborder-primary">Lear more</span>
+                    <span className=" px-4 py-3 font-semibold  text-primary border bborder-primary">Learn more</span>
                   </div>
                 )}
               </div>
