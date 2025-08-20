@@ -14,7 +14,7 @@ import { HiOutlineViewList } from "react-icons/hi";
 import { LiaStarSolid } from "react-icons/lia";
 import Button from "@/components/Button";
 import { RiResetLeftFill } from "react-icons/ri";
-import PaginationButton from "@/components/Table/Pagination";
+import PaginationButton, { Pagination } from "@/components/Table/Pagination";
 import Link from "next/link";
 import BookCard from "@/components/bookCard/BookCard";
 
@@ -206,20 +206,7 @@ const Page = () => {
                 return <BookCard key={index} data={item} />;
               })}
             </div>
-
-            <div className="relative my-10 flex w-full justify-around">
-              <Button contentClass="py-2 px-4">
-                <div className="flex items-center gap-4">
-                  <span>Load more books</span>
-                </div>
-              </Button>
-              <div className="absolute left-0 top-1/2 space-x-1 -translate-y-1/2">
-                <PaginationButton number={1} active />
-                <PaginationButton number={2} />
-                <PaginationButton number={3} />
-                <PaginationButton number={4} />
-              </div>
-            </div>
+            <Pagination />
           </div>
         </div>
       </div>

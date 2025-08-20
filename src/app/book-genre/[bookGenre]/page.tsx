@@ -3,36 +3,20 @@ import { selfDevelopment } from "@/app/data/datas";
 import BookSearchFilter from "@/components/BookSearch";
 import BreadCrumb from "@/components/BreadCrumb";
 import Icon from "@/components/Icon";
-import ImageCard from "@/components/ImageCard";
 import DefaultPageLayout from "@/components/layout/DefaultPageLayout";
 import clsx from "clsx";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { HiOutlineViewList } from "react-icons/hi";
 import { LiaStarSolid } from "react-icons/lia";
 import Button from "@/components/Button";
 import { RiResetLeftFill } from "react-icons/ri";
-import PaginationButton from "@/components/Table/Pagination";
-import Link from "next/link";
+import { Pagination } from "@/components/Table/Pagination";
 import BookCard from "@/components/bookCard/BookCard";
+import BookCategory from "@/components/BookCategory";
 
 const Page = () => {
-  const { bookGenre } = useParams();
-
-  const subGenre = [
-    {
-      title: "Finding hapiness",
-    },
-    {
-      title: "Career",
-    },
-    {
-      title: "Self-confidence",
-    },
-    { title: "Motivation" },
-  ];
-
   // search parems
   interface BookType {
     title: string;
@@ -105,24 +89,12 @@ const Page = () => {
 
   return (
     <DefaultPageLayout>
-      {/* BREAD CRUMB */}
+      {/* Crumb */}
       <div className="border-b border-[#d5d5d5]">
         <div className="max-w-[1500px]  py-6 space-y-6 mx-auto">
           <BreadCrumb data={usePathname()} />
-          <div className="text-4xl font-bold font-playfair">{bookGenre}</div>
-          <div className="flex space-x-3">
-            {subGenre.map((item, index) => {
-              return (
-                <Link
-                  href={"/book-genre/" + bookGenre + "/" + item.title}
-                  key={index}
-                  className="rounded-3xl border px-5 py-2  text-[#807f7a] border-[#807f7a] "
-                >
-                  {item.title}
-                </Link>
-              );
-            })}
-          </div>
+          {/* Book category */}
+          <BookCategory />
         </div>
       </div>
       <div className="w-full ">
@@ -198,20 +170,7 @@ const Page = () => {
                 return <BookCard key={index} data={item} />;
               })}
             </div>
-
-            <div className="relative my-10 flex w-full justify-around">
-              <Button contentClass="py-2 px-4">
-                <div className="flex items-center gap-4">
-                  <span>Load more books</span>
-                </div>
-              </Button>
-              <div className="absolute left-0 top-1/2 space-x-1 -translate-y-1/2">
-                <PaginationButton number={1} active />
-                <PaginationButton number={2} />
-                <PaginationButton number={3} />
-                <PaginationButton number={4} />
-              </div>
-            </div>
+            <Pagination />
           </div>
         </div>
       </div>
